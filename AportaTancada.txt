@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Habla y Cuida | Educación sexual y afectiva para jóvenes</title>
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      background: #f7f8fc;
+      color: #333;
+    }
+    header {
+      background: #4b7bec;
+      color: #fff;
+      text-align: center;
+      padding: 1.5em 1em;
+    }
+    header h1 {
+      margin: 0.2em 0;
+    }
+    nav {
+      background: #355cbe;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 0.8em 1em;
+      display: block;
+    }
+    nav a:hover {
+      background: #2c4da3;
+    }
+    section {
+      padding: 2em 1.5em;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      color: #4b7bec;
+    }
+    .quiz {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1em;
+      margin-top: 1em;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+    .chatbot-btn {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: #4b7bec;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    #chat-box {
+      display: none;
+      position: fixed;
+      right: 20px;
+      bottom: 90px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      max-width: 320px;
+      padding: 10px;
+    }
+    #chat-log {
+      height: 220px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      padding: 6px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      font-size: 0.9em;
+    }
+    footer {
+      background: #4b7bec;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      font-size: 0.9em;
+      margin-top: 2em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>💬 Habla y Cuida</h1>
+    <p>Educación sexual, afectiva y emocional para jóvenes</p>
+  </header>
+
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#afectiva">Educación Afectiva</a>
+    <a href="#sexual">Educación Sexual</a>
+    <a href="#diversidad">Diversidad</a>
+    <a href="#juego">Juega y Aprende</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <section id="inicio">
+    <h2>Bienvenid@ 💜</h2>
+    <p>
+      Este es un espacio gratuito, confidencial y pensado para jóvenes a partir de 12 años.
+      Aquí encontrarás información sobre emociones, autoestima, sexualidad, métodos anticonceptivos, orientación sexual y cómo decir <strong>no</strong> ante la presión.
+    </p>
+    <p>
+      Usa el chatbot para hacer preguntas rápidas o escríbenos a:
+      <a href="mailto:dudas@hablaycuida.org">dudas@hablaycuida.org</a>.
+    </p>
+    <p><strong>Importante:</strong> Este sitio no sustituye la atención médica o psicológica. Si estás en peligro o es una emergencia, llama al <strong>112</strong>.</p>
+  </section>
+
+  <section id="afectiva">
+    <h2>💞 Educación afectiva</h2>
+    <p>
+      Aprender a quererte, poner límites y reconocer tus emociones forma parte del autocuidado. La autoestima se construye cada día: reconociendo tus logros y respetando lo que sientes.
+    </p>
+    <p>
+      Decir <strong>no</strong> también es una forma de cuidarte. Si alguien te presiona, manipula o te hace sentir mal, busca apoyo y recuerda: tienes derecho a decidir.
+    </p>
+  </section>
+
+  <section id="sexual">
+    <h2>⚕️ Educación sexual y reproductiva</h2>
+    <p>
+      Conocer tu cuerpo y cómo cuidarlo te ayuda a tomar decisiones seguras. Aquí te dejamos información básica:
+    </p>
+    <ul>
+      <li><strong>Preservativo:</strong> único método que previene ITS y embarazos.</li>
+      <li><strong>Anticonceptivos hormonales:</strong> (píldora, parche, anillo, implante) evitan ovulación, pero no ITS.</li>
+      <li><strong>Emergencia:</strong> píldora del día después dentro de las 72 h (ideal antes de 24 h).</li>
+    </ul>
+    <p>
+      Las ITS más comunes (clamidia, VIH, VPH, sífilis) pueden prevenirse y tratarse. Usa siempre protección.
+    </p>
+  </section>
+
+  <section id="diversidad">
+    <h2>🏳️‍🌈 Diversidad y orientación</h2>
+    <p>
+      La orientación sexual es hacia quién te sientes atraíd@, y la identidad de género es cómo te sientes tú. Todas las orientaciones e identidades son válidas.
+    </p>
+    <p>
+      Hablarlo, preguntar y respetar la diversidad nos hace más libres y empáticos.
+    </p>
+  </section>
+
+  <section id="juego">
+    <h2>🎮 Juega y aprende</h2>
+    <p>Demuestra lo que sabes sobre sexualidad, emociones y respeto.</p>
+    <div class="quiz" id="quiz"></div>
+    <button onclick="checkAnswers()">Enviar respuestas</button>
+    <p id="result"></p>
+  </section>
+
+  <section id="contacto">
+    <h2>📧 Contacto</h2>
+    <p>¿Tienes dudas personales? Escríbenos a: <a href="mailto:dudas@hablaycuida.org">dudas@hablaycuida.org</a></p>
+    <p>También puedes usar el chatbot para consultas rápidas o anónimas.</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Habla y Cuida — Proyecto educativo sin ánimo de lucro. | Emergencias: 112</p>
+  </footer>
+
+  <!-- Chatbot -->
+  <button class="chatbot-btn" id="open-chat">💬</button>
+  <div id="chat-box">
+    <div id="chat-log"></div>
+    <input id="chat-input" placeholder="Escribe tu pregunta..." style="width:100%;padding:8px;" />
+    <div style="text-align:center;margin-top:6px;">
+      <button id="send-chat">Enviar</button>
+      <button id="email-chat">Por correo</button>
+    </div>
+    <p style="font-size:11px;color:#555;margin-top:6px;">
+      Soy un chatbot informativo. Si estás en peligro o es una emergencia, llama al 112.
+    </p>
+  </div>
+
+  <script>
+    // ---------- CHATBOT ----------
+    const openBtn = document.getElementById('open-chat');
+    const chatBox = document.getElementById('chat-box');
+    const chatLog = document.getElementById('chat-log');
+    const input = document.getElementById('chat-input');
+
+    openBtn.onclick = () => chatBox.style.display = chatBox.style.display === 'none' ? 'block' : 'none';
+    document.getElementById('send-chat').onclick = handleMessage;
+    document.getElementById('email-chat').onclick = () => window.location.href = 'mailto:dudas@hablaycuida.org?subject=Duda%20desde%20Habla%20y%20Cuida';
+
+    function appendMessage(who, text) {
+      const p = document.createElement('div');
+      p.innerHTML = `<strong>${who}:</strong> ${text}`;
+      p.style.margin = '6px 0';
+      chatLog.appendChild(p);
+      chatLog.scrollTop = chatLog.scrollHeight;
+    }
+
+    function handleMessage() {
+      const q = input.value.trim();
+      if (!q) return;
+      appendMessage('Tú', q);
+      input.value = '';
+      const ql = q.toLowerCase();
+      if (/preserv|anticoncep|condon/i.test(ql))
+        return appendMessage('Chat', 'El preservativo es el único método que previene ITS y embarazos. ¿Quieres que te cuente cómo usarlo bien?');
+      if (/its|infecci|vih|vph|clamid/i.test(ql))
+        return appendMessage('Chat', 'Las ITS pueden prevenirse con condón. Si sospechas una, acude a un centro de salud. Algunas tienen cura.');
+      if (/embaraz/i.test(ql))
+        return appendMessage('Chat', 'Si crees que hay riesgo de embarazo, puedes usar la píldora del día después (mejor antes de 24h). Acude a tu centro de salud.');
+      if (/orientaci|gay|bi|hetero|lesb/i.test(ql))
+        return appendMessage('Chat', 'La orientación sexual es cómo te sientes atraíd@. Todas son válidas y naturales.');
+      if (/autoestima|presión|grupo|no quiero/i.test(ql))
+        return appendMessage('Chat', 'Decir “no” es cuidarte. Si alguien te presiona, busca apoyo. Tu bienestar es lo más importante.');
+      if (/ayuda|violenc|abuso/i.test(ql))
+        return appendMessage('Chat', 'Si estás en peligro, llama al 112 o busca a un adulto de confianza. No estás sol@.');
+      appendMessage('Chat', 'Buena pregunta 😊 Si quieres una respuesta más detallada, escríbenos a dudas@hablaycuida.org');
+    }
+
+    // ---------- QUIZ ----------
+    const questions = [
+      {q:"¿Qué método protege de ITS?", o:["Píldora","Condón","DIU"], a:"Condón"},
+      {q:"¿Qué significa consentimiento?", o:["Aceptar libremente","No decir nada","Presión del grupo"], a:"Aceptar libremente"},
+      {q:"¿Qué hacer si alguien te presiona?", o:["Ceder","Decir no y buscar ayuda","Ignorar"], a:"Decir no y buscar ayuda"}
+    ];
+    const quiz = document.getElementById('quiz');
+    questions.forEach((x,i)=>{
+      quiz.innerHTML += `<p>${x.q}</p>` + x.o.map(o=>`<label><input type="radio" name="q${i}" value="${o}"> ${o}</label><br>`).join('');
+    });
+    function checkAnswers(){
+      let score = 0;
+      questions.forEach((x,i)=>{
+        const sel = document.querySelector(`input[name='q${i}']:checked`);
+        if(sel && sel.value===x.a) score++;
+      });
+      document.getElementById('result').innerHTML = `Tu puntuación: ${score}/${questions.length}. ${score==questions.length?'¡Perfecto! 🎉':'Sigue aprendiendo 💪'}`;
+    }
+  </script>
+</body>
+</html>
